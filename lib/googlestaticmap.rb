@@ -35,6 +35,9 @@ class GoogleStaticMap
   # 0 (the whole world) to 21 (individual buildings)
   attr_accessor :zoom
 
+  # Enable bird's eye view, defaults to 0
+  attr_accessor :tilt
+
   # Applications that determine the user's location via a sensor must set this
   # to true, defaults to false
   attr_accessor :sensor
@@ -105,7 +108,7 @@ class GoogleStaticMap
     defaults = {:width => 500, :height => 350, :markers => [], :visible => [],
                 :sensor => false, :maptype => "roadmap", :paths => [],
                 :proxy_port => nil, :proxy_address => nil, :api_key => nil,
-                :client_id => nil, :private_key => nil, :language => nil}
+                :client_id => nil, :private_key => nil, :language => nil, :tilt => 0}
 
     attributes = defaults.merge(attrs)
     attributes.each {|k,v| self.send("#{k}=".to_sym,v)}
